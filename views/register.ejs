@@ -1,0 +1,14 @@
+<%- include ("partials/header") -%>
+        <section class="register" id="regsiter">
+            <h1>sign up</h1>
+            <form class="login" action="/register" method="post">
+                <label>email</label>
+                <input type="email" name="email" placeholder="your email">
+                <label>password</label>
+                <input type="password" name="password" placeholder="your password">
+                <input type="submit" value="sign up">
+                <p>already have an account <a href="/login">sign in</a></p>
+                <p>back to <a href="/">home</a></p>
+            </form>
+        </section>
+<%- include ("partials/footer") -%>

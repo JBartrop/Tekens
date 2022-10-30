@@ -1,0 +1,237 @@
+*{
+    padding:0;
+    border:0;
+    outline:0;
+    margin:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+
+body{
+    padding:100px;
+    background:#f7f7f7;
+}
+
+
+.home{
+    height:75vh;
+    width:100%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center; 
+}
+
+.home h1{
+    font-size:80px;
+    color:#2e1371;
+}
+
+.home p{
+    font-size:30px;
+}
+
+.home a{
+    text-decoration:none;
+    border:1px solid #2e1371;
+    font-size:20px;
+    padding:10px 20px;
+    margin:10px;
+    display:inline-block;
+    border-radius:20px;
+    transition:0.5s ease;
+    color:black;
+}
+
+.home a:hover{
+    background:#2e1371;
+    color:white;
+}
+
+.home a:active{
+    transform:scale(0.85);
+}
+
+footer{
+    text-align:center;
+}
+
+/*.regist{
+    position:relative;
+    text-align:center;
+    display:block ;
+    height:75vh;
+    width:60%;
+    margin:auto;
+    align-items:center;
+    justify-content:center;
+}*/
+
+.register{
+    padding-top:200px;
+    height:75vh;
+    width:100%;
+    position:relative;
+    display:block;
+    justify-content:center;
+    align-items:center;
+    text-align:center; 
+}
+
+.register h1{
+    font-size:80px;
+    color:#2e1371;
+    display:inline-block;
+}
+
+.register form{
+    width:50%;
+    margin:auto
+}
+
+.register form label{
+    font-weight:bold;
+}
+
+.register form input[type="email"], input[type="password"]{
+    width:100%;
+    margin:10px;
+    padding:5px;
+    outline:none;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid black;
+    color:black;
+}
+
+.register form input[type="submit"]{
+    width:100%;
+    margin:10px;
+    padding:10px;
+    outline:none;
+    background:transparent;
+    border:none;
+    border:1px solid black;
+    border-radius:20px;
+    font-weight:bold;
+    transition:0.5s ease;
+}
+
+.register form input[type="submit"]:hover{
+    background:#2e1371;
+    color:white;
+}
+
+.register form input[type="submit"]:active{
+    transform:scale(0.85);
+}
+
+.register form a{
+    text-decoration:none;
+}
+
+
+.login{
+    padding-top:200px;
+    height:75vh;
+    width:100%;
+    position:relative;
+    display:block;
+    justify-content:center;
+    align-items:center;
+    text-align:center; 
+}
+
+.login h1{
+    font-size:80px;
+    color:#2e1371;
+    display:inline-block;
+}
+
+.login form{
+    width:50%;
+    margin:auto
+}
+
+.login form label{
+    font-weight:bold;
+}
+
+.login form input[type="email"], input[type="password"]{
+    width:100%;
+    margin:10px;
+    padding:5px;
+    outline:none;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid black;
+    color:black;
+}
+
+.login form input[type="submit"]{
+    width:100%;
+    margin:10px;
+    padding:10px;
+    outline:none;
+    background:transparent;
+    border:none;
+    border:1px solid black;
+    border-radius:20px;
+    font-weight:bold;
+    transition:0.5s ease;
+}
+
+.login form input[type="submit"]:hover{
+    background:#2e1371;
+    color:white;
+}
+
+.login form input[type="submit"]:active{
+    transform:scale(0.85);
+}
+
+.login form a{
+    text-decoration:none;
+}
+
+.admin{
+    height:75vh;
+    width:100%;
+    position:relative;
+    display:block;
+    justify-content:center;
+    align-items:center;
+    text-align:center; 
+}
+
+.admin h1{
+    font-size:50px;
+    color:#2e1371;
+}
+
+.admin p{
+    font-size:20px;
+}
+
+.admin a{
+    text-decoration:none;
+    border:1px solid #2e1371;
+    font-size:20px;
+    padding:10px 20px;
+    margin:10px;
+    display:inline-block;
+    border-radius:20px;
+    transition:0.5s ease;
+    color:black;
+}
+
+.admin a:hover{
+    background:#2e1371;
+    color:white;
+}
+
+.admin a:active{
+    transform:scale(0.85);
+}
