@@ -2,22 +2,30 @@ require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
-const mongoose = require("mongoose");
-//const session = require("express-session");
-
+require('dotenv').config()
+require('./init_mogo')
+const User = require('./model')
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
-mongoose.connect("mongodb://localhost:27017/tekensDB", {useNewUrlParser: true});
 
-const userSchema = ({
-    email: String,
-    password: String
-})
 
-const User = mongoose.model("User", userSchema);
+// const mongoose = require("mongoose");
+//const session = require("express-session");
+// mongoose.connect("mongodb://localhost:27017", {useNewUrlParser: true});
 
+// const userSchema = ({
+//     email: String,
+//     password: String
+// })
+
+// const User = mongoose.model("User", userSchema);
+
+
+
+
+//ROUTES INITS 
 app.get("/", function(request, response){
     response.render("home");
 });
@@ -66,11 +74,13 @@ app.post("/login", function(request, response){
 });
 
 
-
 //app.get("/admin", function(request, response){
 //    response.render("admin")
 //});
 
-app.listen(3000, function(){
-    console.log("port 3000 is running");
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, () => {
+    console.log(`port 3000 is running ${PORT}`);
 });
