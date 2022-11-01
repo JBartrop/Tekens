@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 require('dotenv').config()
 require('./init_mogo')
+const qrcode = require('qrcode')
 const User = require('./model')
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -73,6 +74,16 @@ app.post("/login", function(request, response){
     });
 }); 
 
+let input_text = 'Hey boy!!!';
+
+app.get("/scan", (req, res) => {
+    qrcode.toDataURL(input_text, (err, src) => {
+        if(err) res.send('something is wrong');
+        res.render( "qrcode", {
+            qr_code: src
+        });
+    })
+})
 
 //app.get("/admin", function(request, response){
 //    response.render("admin")
@@ -82,5 +93,5 @@ app.post("/login", function(request, response){
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
-    console.log(`port 3000 is running ${PORT}`);
+    console.log(`port is running on ${PORT}`);
 });
