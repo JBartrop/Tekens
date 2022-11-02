@@ -74,9 +74,10 @@ app.post("/login", function(request, response){
     });
 }); 
 
-let input_text = 'Hey boy!!!';
 
-app.get("/scan", (req, res) => {
+
+app.get("/auth2", (req, res) => {
+    let input_text = 'Hey boy!!!';
     qrcode.toDataURL(input_text, (err, src) => {
         if(err) res.send('something is wrong');
         res.render( "qrcode", {
