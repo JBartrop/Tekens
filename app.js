@@ -5,25 +5,12 @@ const ejs = require("ejs");
 require('dotenv').config()
 require('./init_mogo')
 const qrcode = require('qrcode')
-const User = require('./model')
+const User = require('./model');
+const { verifyAccessToken, signAccessToken } = require("./helpers/jwt_helpers");
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
-
-
-// const mongoose = require("mongoose");
-//const session = require("express-session");
-// mongoose.connect("mongodb://localhost:27017", {useNewUrlParser: true});
-
-// const userSchema = ({
-//     email: String,
-//     password: String
-// })
-
-// const User = mongoose.model("User", userSchema);
-
-
 
 
 //ROUTES INITS 
@@ -51,45 +38,62 @@ app.post("/register", function(request, response){
 
 });
 
+
+
 app.get("/login", function(request, response){
     response.render("signin")
 });
 
-app.post("/login", function(request, response){
-    const usermail = request.body.email;
-    const password = request.body.password;
+app.post("/login", async function(request, response){
+    try {
+        
+    const usermail = await request.body.email;
+    const password = await request.body.password;
 
-    User.findOne({email: usermail}, function(err, foundUser){
+    const user = await User.findOne({email: usermail}, 
+        async function(err, foundUser){
         if(err){
             console.log(err);
         }else{
             if(foundUser){
                 if(foundUser.password === password){
-                    response.render("admin")
+                    const accessToken = await signAccessToken(user.id)
+                    res.json({ accessToken }).render("qrcode")
                 }else{
                     console.log(err);
                 }
             }
         }
     });
+} catch (error) {
+   
+    
+}
 }); 
 
+app.get("/auth2", async(req, res) => {
+    // const accessToken = await signAccessToken(user.id)
+    // let input_text = `localhost:3000/accessToken?${accessToken}`;
+    let input_text = 'https://hqstaff.newpatrioticparty.org/index.php?id=NPP-HQSTAFF-2022-0072';
 
+    // const token = await verifyAccessToken(user.id)
+    
+    // if(!token) res.send('check token properly');
+    
+    qrcode.toFile('./qrcode.png', 'https://hqstaff.newpatrioticparty.org/index.php?id=NPP-HQSTAFF-2022-0040')
 
-app.get("/auth2", (req, res) => {
-    let input_text = 'Hey boy!!!';
-    qrcode.toDataURL(input_text, (err, src) => {
-        if(err) res.send('something is wrong');
-        res.render( "qrcode", {
-            qr_code: src
-        });
-    })
+    // qrcode.toDataURL(input_text, (err, src) => {
+    //     if(err) res.send('something is wrong');
+    //     res.render( "qrcode", {
+    //         qr_code: src
+    //     });
+    // })
 })
+
 
 //app.get("/admin", function(request, response){
 //    response.render("admin")
 //});
-
 
 const PORT = process.env.PORT || 3000
 
