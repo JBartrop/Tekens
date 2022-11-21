@@ -10,7 +10,11 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true,
-    }
+    },
+    isScanned: {
+        type: Boolean,
+        default: false
+    },
 })
 
 userSchema.pre('save', async function(req, res, next) {

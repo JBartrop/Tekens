@@ -7,14 +7,16 @@ const genCode = async(req, res, next) => {
     const userId = await User.findById(req.params.id)
     res.json(id._id);
 
-    let input_text = 'Hey boy!!!';
+    let input_text = 'https://hqstaff.newpatrioticparty.org/index.php?id=NPP-HQSTAFF-2022-0072';
 
-    const code = qrcode.toDataURL(input_text, (err, src) => {
-        res.send({
-            qr_code: src, 
-        })
-    })
+    // const code = qrcode.toFile(input_text, (err, src) => {
+    //     res.send({
+    //         qr_code: src, 
+    //     })
+    // })
 
+    const jar = qrcode.toFile('./qrcode.png', input_text)
+    res.send(jar)
 
 //   toCanvas('text', { errorCorrectionLevel: 'H' }, function (err, canvas) {
 //         if (err) throw err
