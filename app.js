@@ -36,6 +36,15 @@ app.post("/register", async function (request, response){
 
 });
 
+/***
+PORT=3000
+MONGODB_URI=mongodb://localhost:27017
+DB_NAME=tekens
+ACCESS_TOKEN_SECRET=735428094d5f8da49f4688f279cd417727ee82db633295c8728b460e691aedad
+REFRESH_TOKEN_SECRET=9bb759392a9fed78535c209cb170c495b1de0fbfb4a2ad932243701e4627d3d9
+ 
+***/
+
 
 
 app.get("/login", function(request, response){
