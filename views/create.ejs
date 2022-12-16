@@ -1,19 +1,21 @@
 <%- include ("partials/header") -%>
-        <section class="register" id="regsiter">
-            <h1>sign up</h1>
-            <form class="login" action="/register" method="post">
-                <label>name</label>
-                <input type="email" name="title" placeholder="your email">
-                <label>category</label>
-                <input type="email" name="category" placeholder="your email">
-                <label>email</label>
-                <input type="email" name="email" placeholder="your email">
-                <label>description</label>
-                <input type="email" name="description" placeholder="your email">
-                <label>password</label>
-                <input type="password" name="password" placeholder="your password">
-                <input type="submit" value="sign up">
-                <p>already have an account <a href="/login">sign in</a></p>
+        <section class="create" id="create">
+            <h1>create</h1>
+            <form class="create" action="/create" method="post">
+                <label>name of event</label>
+                <input type="text" name="name" placeholder="name of event">
+                <label>category of event</label>
+                <input type="text" name="category" placeholder="category of event">
+                <label>image of event</label>
+                <input type="image" name="image" placeholder="image of event">
+                <label>description of event</label>
+                <input type="text" name="description" placeholder="description of event">
+                <label>date of event</label>
+                <input type="date" name="date" placeholder="date of event">
+                <label>time of event</label>
+                <input type="time" name="time" placeholder="time of event">
+                <input type="submit" value="post">
+                <!--<p>already have an account <a href="/login">sign in</a></p>-->
                 <p>back to <a href="/">home</a></p>
             </form>
 <!-- Yo this is for creating a ticket so you finish it

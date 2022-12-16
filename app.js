@@ -112,6 +112,10 @@ app.get("/admin", function(request, response){
    response.render("admin")
 });
 
+app.get("/create", function(request, response){
+    response.render("create")
+});
+
 const PORT = process.env.PORT || 3000
 
 app.listen(PORT, () => {
